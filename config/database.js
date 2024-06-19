@@ -1,11 +1,14 @@
+require("dotenv").config();
 const { Sequelize } = require("sequelize");
+
 const sequelize = new Sequelize(
-  "yourchoi_fptlc",
-  "yourchoi_fptlc_user",
-  "pa{T#$I@VK2$",
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
   {
-    host: "192.185.74.209",
+    host: DB_HOST,
     dialect: "mysql",
+    dialectModule: require("mysql2"),
   }
 );
 
