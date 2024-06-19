@@ -26,3 +26,5 @@ sequelize
   .catch((err) => {
     console.error("Unable to connect", err);
   });
+
+module.exports = app;
