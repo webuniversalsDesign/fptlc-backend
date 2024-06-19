@@ -6,13 +6,12 @@ const crmPipeline = require("./routes/crmpipelineRoute");
 const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use(errorHandler);
-
 app.use("/api/crmpipeline", crmPipeline);
+app.use(errorHandler);
 
 sequelize
   .authenticate()
@@ -24,5 +23,5 @@ sequelize
     });
   })
   .catch((err) => {
-    console.error("Unable to connect", err);
+    console.error("Unable to connect to the database:", err);
   });
