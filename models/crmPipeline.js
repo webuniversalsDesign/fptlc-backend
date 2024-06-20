@@ -24,13 +24,17 @@ const CrmPipeline = sequelize.define(
       type: DataTypes.FLOAT,
       allowNull: false,
     },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     stars: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
   },
   {
-    timestamps: false,
+    timestamps: true,
   }
 );
 
