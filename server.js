@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const sequelize = require("./config/database");
 const crmPipeline = require("./routes/crmpipelineRoute");
+const salesOrder = require("./routes/salesOrderRoute");
 const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(errorHandler);
 
 app.use("/api/crmpipeline", crmPipeline);
+app.use("/api/salesorder", salesOrder);
 
 sequelize
   .authenticate()

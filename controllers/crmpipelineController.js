@@ -51,7 +51,7 @@ exports.deleteCrmpipeline = async (req, res, next) => {
     const crmpipeline = await CrmPipeline.findByPk(req.params.id);
     if (crmpipeline) {
       await crmpipeline.destroy();
-      res.status(204).send();
+      res.status(204).send("Deleted Successfully");
     } else {
       res.status(404).send("Not Found");
     }
